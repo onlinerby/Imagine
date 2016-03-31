@@ -588,7 +588,7 @@ final class Image extends AbstractImage
     public function profile(ProfileInterface $profile)
     {
         try {
-            $this->imagick->profileImage('icc', $profile->data());
+            $this->imagick->profileImage('*', $profile->data());
         } catch (\ImagickException $e) {
             throw new RuntimeException(sprintf('Unable to add profile %s to image', $profile->name()), $e->getCode(), $e);
         }
